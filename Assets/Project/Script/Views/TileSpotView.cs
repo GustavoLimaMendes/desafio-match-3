@@ -39,11 +39,13 @@ namespace Gazeus.DesafioMatch3.Views
         {
             tile.transform.SetParent(transform, false);
             tile.transform.position = transform.position;
+           
         }
 
         private void OnTileClick()
         {
             Clicked?.Invoke(_x, _y);
         }
+
     }
 }

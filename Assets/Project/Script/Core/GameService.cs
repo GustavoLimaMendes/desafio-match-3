@@ -43,14 +43,12 @@ namespace Gazeus.DesafioMatch3.Core
         {
             _tilesTypes = new List<int> { 0, 1, 2, 3 };
             _boardTiles = CreateBoard(boardWidth, boardHeight, _tilesTypes);
-
             return _boardTiles;
         }
 
         public List<BoardSequence> SwapTile(int fromX, int fromY, int toX, int toY)
         {
             List<List<Tile>> newBoard = CopyBoard(_boardTiles);
-
             (newBoard[toY][toX], newBoard[fromY][fromX]) = (newBoard[fromY][fromX], newBoard[toY][toX]);
 
             List<BoardSequence> boardSequences = new();

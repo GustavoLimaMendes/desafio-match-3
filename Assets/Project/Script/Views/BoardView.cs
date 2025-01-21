@@ -15,6 +15,7 @@ namespace Gazeus.DesafioMatch3.Views
         [SerializeField] private GridLayoutGroup _boardContainer;
         [SerializeField] private TilePrefabRepository _tilePrefabRepository;
         [SerializeField] private TileSpotView _tileSpotPrefab;
+        [SerializeField] private SpawnParticles _tileEffects;
 
         private GameObject[][] _tiles;
         private TileSpotView[][] _tileSpots;
@@ -80,6 +81,8 @@ namespace Gazeus.DesafioMatch3.Views
             for (int i = 0; i < matchedPosition.Count; i++)
             {
                 Vector2Int position = matchedPosition[i];
+                //
+                _tileEffects.SpawnVFXs(_tiles[position.y][position.x]);
                 Destroy(_tiles[position.y][position.x]);
                 _tiles[position.y][position.x] = null;
             }
