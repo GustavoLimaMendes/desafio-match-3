@@ -81,8 +81,13 @@ namespace Gazeus.DesafioMatch3.Views
             for (int i = 0; i < matchedPosition.Count; i++)
             {
                 Vector2Int position = matchedPosition[i];
-                //
-                _tileEffects.SpawnVFXs(_tiles[position.y][position.x]);
+
+                //Gustavo Lima Teste
+                if (matchedPosition.Count > 3)              
+                    _tileEffects.SpawnVFXs2(_tiles[position.y][position.x]);
+                else
+                    _tileEffects.SpawnVFXs(_tiles[position.y][position.x]);
+
                 Destroy(_tiles[position.y][position.x]);
                 _tiles[position.y][position.x] = null;
             }
