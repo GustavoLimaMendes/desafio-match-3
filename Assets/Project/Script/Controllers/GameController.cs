@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Gazeus.DesafioMatch3.Core;
 using Gazeus.DesafioMatch3.Models;
+using Gazeus.DesafioMatch3.ScriptableObjects;
 using Gazeus.DesafioMatch3.Views;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ namespace Gazeus.DesafioMatch3.Controllers
         [SerializeField] private BoardView _boardView;
         [SerializeField] private int _boardHeight = 10;
         [SerializeField] private int _boardWidth = 10;
+        
+        [SerializeField] private int _amountTypes = 4;
+        private TilePrefabRepository tilesRepos;
 
         private GameService _gameEngine;
         private bool _isAnimating;
@@ -33,7 +37,15 @@ namespace Gazeus.DesafioMatch3.Controllers
 
         private void Start()
         {
-            List<List<Tile>> board = _gameEngine.StartGame(_boardWidth, _boardHeight);
+            tilesRepos = _boardView._tilePrefabRepository;
+
+            if (_amountTypes > tilesRepos.TileTypePrefabList.Length)
+            {
+                _amountTypes = tilesRepos.TileTypePrefabList.Length;
+                Debug.Log(_amountTypes);
+            }
+
+            List<List<Tile>> board = _gameEngine.StartGame(_boardWidth, _boardHeight, _amountTypes);
             _boardView.CreateBoard(board);
         }
         #endregion

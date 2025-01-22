@@ -13,9 +13,10 @@ namespace Gazeus.DesafioMatch3.Views
         public event Action<int, int> TileClicked;
 
         [SerializeField] private GridLayoutGroup _boardContainer;
-        [SerializeField] private TilePrefabRepository _tilePrefabRepository;
         [SerializeField] private TileSpotView _tileSpotPrefab;
         [SerializeField] private SpawnParticles _tileEffects;
+
+        public TilePrefabRepository _tilePrefabRepository;
 
         private GameObject[][] _tiles;
         private TileSpotView[][] _tileSpots;

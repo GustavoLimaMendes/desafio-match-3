@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 429446045}
   - component: {fileID: 429446044}
   - component: {fileID: 429446043}
+  - component: {fileID: 429446046}
   m_Layer: 5
   m_Name: BoardContainer
   m_TagString: Untagged
@@ -173,9 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boardContainer: {fileID: 429446045}
-  _tilePrefabRepository: {fileID: 11400000, guid: 153eac3747f207a40add49ed6e2dacb9, type: 2}
   _tileSpotPrefab: {fileID: -4864831497923239132, guid: 6527630aaec5689489d14bfbb482fd0f, type: 3}
-  _tileEffects: {fileID: 827201096}
+  _tileEffects: {fileID: 429446046}
+  _tilePrefabRepository: {fileID: 11400000, guid: 153eac3747f207a40add49ed6e2dacb9, type: 2}
 --- !u!114 &429446044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +215,20 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 10
+--- !u!114 &429446046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429446041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00af3e0e03a67e24cb1c12291a91b347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect01: {fileID: 8253062065937978491, guid: e9b9c8589f6d9514eb0c234dcf2f711b, type: 3}
+  effect02: {fileID: 8253062065937978491, guid: 788ec90c6a34aee47be22cb1b71f99cd, type: 3}
 --- !u!1 &541411152
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,15 +344,15 @@ GameObject:
   m_Component:
   - component: {fileID: 827201095}
   - component: {fileID: 827201098}
-  - component: {fileID: 827201097}
   - component: {fileID: 827201096}
+  - component: {fileID: 827201097}
   m_Layer: 5
   m_Name: BoardContainer-Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &827201095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -355,7 +370,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -810}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827201096
 MonoBehaviour:
@@ -660,8 +675,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boardView: {fileID: 429446043}
-  _boardHeight: 10
-  _boardWidth: 10
+  _boardHeight: 14
+  _boardWidth: 12
+  _amountTypes: 16
 --- !u!4 &1361904665
 Transform:
   m_ObjectHideFlags: 0
