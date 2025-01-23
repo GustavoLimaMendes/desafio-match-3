@@ -40,10 +40,10 @@ namespace Gazeus.DesafioMatch3.Controllers
             tilesRepos = _boardView._tilePrefabRepository;
 
             if (_amountTypes > tilesRepos.TileTypePrefabList.Length)
-            {
                 _amountTypes = tilesRepos.TileTypePrefabList.Length;
-                Debug.Log(_amountTypes);
-            }
+
+            if (_amountTypes < 2)
+                _amountTypes = 2;
 
             List<List<Tile>> board = _gameEngine.StartGame(_boardWidth, _boardHeight, _amountTypes);
             _boardView.CreateBoard(board);

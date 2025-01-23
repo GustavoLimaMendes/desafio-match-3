@@ -83,7 +83,11 @@ namespace Gazeus.DesafioMatch3.Views
             {
                 Vector2Int position = matchedPosition[i];
 
-                //Gustavo Lima Teste
+                /* 
+                     Identifico qual tipo do Tile que está sendo destruído 
+                para instanciar a partícula de acordo com cada cor do Tile
+                */
+
                 TileType type = _tiles[position.y][position.x].GetComponent<TypeData>().tileType;
 
                 if (matchedPosition.Count > 3)

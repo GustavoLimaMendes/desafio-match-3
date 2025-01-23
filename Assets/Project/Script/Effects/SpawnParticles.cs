@@ -11,8 +11,7 @@ namespace Gazeus.DesafioMatch3
     {
 
         [SerializeField] RectTransform[] effect01;
-        [SerializeField] RectTransform effect02;
-
+        [SerializeField] RectTransform[] effect02;
 
         public void SpawnVFXs(GameObject pos, TileType tileType )
         {
@@ -28,7 +27,7 @@ namespace Gazeus.DesafioMatch3
         {
 
             if (pos != null)
-                Instantiate(effect02, pos.transform.position , pos.transform.rotation);
+                Instantiate(effect02[((int)tileType)], pos.transform.position , pos.transform.rotation);
 
         }
     }
