@@ -23,6 +23,7 @@ Shader "GustavoLima_Shaders/UI_Particle_Unlit"
        struct Input
        {
            float2 uv_MainTex;
+           float4 color : COLOR;
        };
 
        fixed4 _Color;
@@ -30,9 +31,10 @@ Shader "GustavoLima_Shaders/UI_Particle_Unlit"
 
        void surf (Input IN, inout SurfaceOutputStandard o)
        {
-           fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-           o.Albedo = c.rgb;
-           o.Alpha = c.a * _Transparency; 
+          fixed4 texColor = tex2D(_MainTex, IN.uv_MainTex);
+          fixed4 c = texColor * _Color * IN.color;
+          o.Albedo = c.rgb;
+          o.Alpha = c.a * _Transparency; 
        }
 
        ENDCG

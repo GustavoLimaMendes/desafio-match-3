@@ -17,8 +17,8 @@ namespace Gazeus.DesafioMatch3
         void ApplySafeArea()
         {
             Rect safeArea = Screen.safeArea;
-            float width = safeArea.width / Screen.width;
-            float height = safeArea.height / Screen.height;
+            //float width = safeArea.width / Screen.width;
+            //float height = safeArea.height / Screen.height;
 
             rectTransform.anchorMin = new Vector2(safeArea.x / Screen.width, safeArea.y / Screen.height);
             rectTransform.anchorMax = new Vector2((safeArea.x + safeArea.width) / Screen.width, (safeArea.y + safeArea.height) / Screen.height);

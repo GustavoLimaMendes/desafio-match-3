@@ -84,16 +84,18 @@ namespace Gazeus.DesafioMatch3.Views
                 Vector2Int position = matchedPosition[i];
 
                 //Gustavo Lima Teste
-                if (matchedPosition.Count > 3)              
-                    _tileEffects.SpawnVFXs2(_tiles[position.y][position.x]);
+                TileType type = _tiles[position.y][position.x].GetComponent<TypeData>().tileType;
+
+                if (matchedPosition.Count > 3)
+                    _tileEffects.SpawnVFXs2(_tiles[position.y][position.x], type);
                 else
-                    _tileEffects.SpawnVFXs(_tiles[position.y][position.x]);
+                    _tileEffects.SpawnVFXs(_tiles[position.y][position.x], type);
 
                 Destroy(_tiles[position.y][position.x]);
                 _tiles[position.y][position.x] = null;
             }
 
-            return DOVirtual.DelayedCall(0.2f, () => { });
+            return DOVirtual.DelayedCall(0.1f, () => { });
         }
 
         public Tween MoveTiles(List<MovedTileInfo> movedTiles)
